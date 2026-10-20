@@ -48,8 +48,9 @@ document.querySelectorAll(".stars").forEach((el) => {
   el.innerHTML = "";
   for (let i = 1; i <= 5; i += 1) {
     const star = document.createElement("span");
-    star.className = i <= rating ? "star is-on" : "star";
-    star.textContent = "★";
+    const on = i <= rating;
+    star.className = on ? "star is-on" : "star";
+    star.textContent = on ? "★" : "☆";
     el.appendChild(star);
   }
 });

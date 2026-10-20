@@ -351,7 +351,7 @@ h4 {
   padding: 1.4rem 1.2rem 1.5rem;
 }
 
-.skill-card span {
+.skill-card > span {
   display: block;
   color: hsl(var(--primary));
   font-family: var(--font-display);
@@ -374,13 +374,17 @@ h4 {
 
 .stars {
   display: flex;
-  gap: 2px;
-  color: rgba(255, 255, 255, 0.18);
-  font-size: 1.15rem;
+  gap: 3px;
+  font-size: 1.2rem;
   letter-spacing: 1px;
+  line-height: 1;
 }
 
-.star.is-on {
+.stars .star {
+  color: #3a3a3a;
+}
+
+.stars .star.is-on {
   color: hsl(var(--primary));
 }
 
