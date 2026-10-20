@@ -1,22 +1,9 @@
 const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#site-nav");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const loader = document.querySelector("#lens-loader");
-const openSite = () => {
-  document.body.classList.remove("is-loading");
-  document.body.classList.add("is-ready");
-  if (loader) {
-    loader.classList.add("is-done");
-    window.setTimeout(() => loader.remove(), 1000);
-  }
-};
-
-if (reduceMotion) {
-  openSite();
-} else {
-  window.setTimeout(openSite, 1800);
+if (location.hash) {
+  document.querySelector(location.hash)?.scrollIntoView({ behavior: "auto", block: "start" });
 }
 
 window.addEventListener("scroll", () => {
@@ -35,6 +22,27 @@ nav.querySelectorAll("a").forEach((link) => {
   });
 });
 
+const sections = [
+  ["#home", document.querySelector("#home")],
+  ["#skills", document.querySelector("#skills")],
+  ["#gallery", document.querySelector("#gallery")],
+  ["#contact", document.querySelector("#contact")],
+];
+
+const setActiveNav = () => {
+  const y = window.scrollY + 120;
+  let current = "#home";
+  sections.forEach(([hash, el]) => {
+    if (el && el.offsetTop <= y) current = hash;
+  });
+  nav.querySelectorAll("a").forEach((link) => {
+    link.classList.toggle("is-active", link.getAttribute("href") === current);
+  });
+};
+
+window.addEventListener("scroll", setActiveNav);
+setActiveNav();
+
 document.querySelectorAll(".stars").forEach((el) => {
   const rating = Number(el.dataset.rating || 0);
   el.innerHTML = "";
@@ -47,38 +55,27 @@ document.querySelectorAll(".stars").forEach((el) => {
 });
 
 const tabs = document.querySelectorAll(".gallery-tabs button");
-const panels = document.querySelectorAll(".mosaic");
+const cards = document.querySelectorAll(".work-card");
 
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const category = tab.dataset.category;
-    tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
-    tab.setAttribute("aria-selected", "true");
-    panels.forEach((panel) => {
-      const match = panel.dataset.category === category;
-      panel.classList.remove("is-active");
-      panel.hidden = !match;
-      if (match) {
-        void panel.offsetWidth;
-        panel.classList.add("is-active");
-      }
-    });
-  });
+cards.forEach((card) => {
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "button");
 });
 
-const reveal = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-in");
-        reveal.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
-);
+const setGalleryCategory = (category) => {
+  tabs.forEach((t) => t.setAttribute("aria-selected", String(t.dataset.category === category)));
+  cards.forEach((card) => {
+    const match = category === "all" || card.dataset.category === category;
+    card.classList.toggle("is-hidden", !match);
+  });
+};
 
-document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => setGalleryCategory(tab.dataset.category));
+});
+
+const startCategory = new URLSearchParams(location.search).get("cat");
+if (startCategory) setGalleryCategory(startCategory);
 
 const EMAILJS_SERVICE_ID = "service_dfaqemo";
 const EMAILJS_TEMPLATE_ID = "template_5qfquvq";
@@ -102,7 +99,7 @@ const emailjsHint = (error) => {
     return "EmailJS rejected the template. Confirm Template ID template_5qfquvq is saved, with To Email set to navyaeditor01@gmail.com.";
   }
   if (status === 403 || /origin|referer|not allowed/i.test(text)) {
-    return "EmailJS blocked this website origin. In Account → Security, allow http://127.0.0.1:8765 and localhost.";
+    return "EmailJS blocked this website origin. In Account → Security, allow this site origin.";
   }
   if (text) return `EmailJS error: ${text}`;
   return "The message could not be sent. Check EmailJS → Email History for the failed request.";
@@ -171,41 +168,59 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-const shutterFlash = document.createElement("div");
-shutterFlash.className = "shutter-flash";
-document.body.appendChild(shutterFlash);
+const lightbox = document.querySelector("#lightbox");
+const lightboxImg = lightbox?.querySelector("img");
+const lightboxCap = lightbox?.querySelector("figcaption");
+let galleryItems = [];
+let galleryIndex = 0;
 
-document.querySelectorAll(".btn-shutter").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (reduceMotion) return;
-    shutterFlash.classList.remove("is-on");
-    void shutterFlash.offsetWidth;
-    shutterFlash.classList.add("is-on");
+const visibleGalleryItems = () =>
+  [...document.querySelectorAll(".work-card")].filter((card) => !card.classList.contains("is-hidden"));
+
+const openLightbox = (index) => {
+  galleryItems = visibleGalleryItems();
+  if (!lightbox || !galleryItems.length) return;
+  galleryIndex = (index + galleryItems.length) % galleryItems.length;
+  const card = galleryItems[galleryIndex];
+  const img = card.querySelector("img");
+  const title = card.querySelector("h3")?.textContent || "";
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt || "";
+  lightboxCap.textContent = `${title}  ·  ${galleryIndex + 1} / ${galleryItems.length}`;
+  lightbox.hidden = false;
+  document.body.style.overflow = "hidden";
+};
+
+const closeLightbox = () => {
+  if (!lightbox) return;
+  lightbox.hidden = true;
+  document.body.style.overflow = "";
+};
+
+cards.forEach((item) => {
+  const open = () => {
+    const items = visibleGalleryItems();
+    openLightbox(items.indexOf(item));
+  };
+  item.addEventListener("click", open);
+  item.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      open();
+    }
   });
 });
 
-const cursor = document.querySelector("#lens-cursor");
-const canHover = window.matchMedia("(pointer: fine)").matches && !reduceMotion;
+lightbox?.querySelector(".lightbox-close")?.addEventListener("click", closeLightbox);
+lightbox?.querySelector(".lightbox-prev")?.addEventListener("click", () => openLightbox(galleryIndex - 1));
+lightbox?.querySelector(".lightbox-next")?.addEventListener("click", () => openLightbox(galleryIndex + 1));
+lightbox?.addEventListener("click", (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
 
-if (cursor && canHover) {
-  document.documentElement.classList.add("has-lens-cursor");
-  let x = window.innerWidth / 2;
-  let y = window.innerHeight / 2;
-  let cx = x;
-  let cy = y;
-
-  window.addEventListener("mousemove", (event) => {
-    x = event.clientX;
-    y = event.clientY;
-    const focus = event.target.closest("a, button, input, textarea, .mosaic-item");
-    cursor.classList.toggle("is-focus", Boolean(focus));
-  });
-
-  const follow = () => {
-    cx += (x - cx) * 0.18;
-    cy += (y - cy) * 0.18;
-    cursor.style.transform = `translate(${cx - 22}px, ${cy - 22}px)`;
-    requestAnimationFrame(follow);
-  };
-  follow();
-}
+window.addEventListener("keydown", (event) => {
+  if (lightbox?.hidden) return;
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowLeft") openLightbox(galleryIndex - 1);
+  if (event.key === "ArrowRight") openLightbox(galleryIndex + 1);
+});

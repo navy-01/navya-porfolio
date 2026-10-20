@@ -11,90 +11,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="is-loading">
+  <body>
     <a class="skip-link" href="#home">Skip to content</a>
-
-    <div class="lens-loader" id="lens-loader" aria-hidden="true">
-      <div class="camera-lens camera-lens--loader">
-        <div class="lens-knurl"></div>
-        <div class="lens-rim"></div>
-        <div class="lens-rim lens-rim--inner"></div>
-        <div class="lens-iris">
-          <span style="--i: 0"></span>
-          <span style="--i: 1"></span>
-          <span style="--i: 2"></span>
-          <span style="--i: 3"></span>
-          <span style="--i: 4"></span>
-          <span style="--i: 5"></span>
-        </div>
-        <div class="lens-glass"></div>
-        <div class="lens-spark"></div>
-      </div>
-      <p class="loader-caption">Focusing</p>
-    </div>
-
-    <div class="lens-cursor" id="lens-cursor" aria-hidden="true">
-      <span class="lens-cursor-ring"></span>
-      <span class="lens-cursor-dot"></span>
-    </div>
 
     <header class="site-header" id="top">
       <div class="header-inner">
-        <a class="logo" href="#home" aria-label="Navya home">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.6" />
-              <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.4" />
-              <rect x="23.2" y="8.2" width="3.2" height="2.4" rx="0.4" fill="currentColor" />
-            </svg>
-          </span>
-          <span class="logo-text">Navya</span>
-        </a>
-
+        <a class="logo" href="#home" aria-label="Navya home">NAVYA</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
           <span class="sr-only">Menu</span>
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
-
         <nav class="site-nav" id="site-nav" aria-label="Primary">
           <a href="#home">Home</a>
           <a href="#skills">Skills</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact" class="nav-cta">Contact</a>
+          <a href="#gallery">Portfolio</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main>
       <section class="hero" id="home">
-        <div class="hero-lens" aria-hidden="true">
-          <div class="camera-lens camera-lens--hero">
-            <div class="lens-knurl"></div>
-            <div class="lens-rim"></div>
-            <div class="lens-rim lens-rim--inner"></div>
-            <div class="lens-iris">
-              <span style="--i: 0"></span>
-              <span style="--i: 1"></span>
-              <span style="--i: 2"></span>
-              <span style="--i: 3"></span>
-              <span style="--i: 4"></span>
-              <span style="--i: 5"></span>
-            </div>
-            <div class="lens-glass"></div>
-            <div class="lens-spark"></div>
-          </div>
-        </div>
-        <div class="bokeh" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
+        <div class="hero-media">
+          <img src="image/Landscape%20photography/photo%201.webp" alt="" />
+          <div class="hero-shade"></div>
         </div>
         <div class="hero-content">
+          <p class="hero-kicker">Photography · Design · Motion</p>
           <h1>I AM NAVYA</h1>
           <p class="hero-copy">
             Visual Communication student at Shashun Jain College. I love exploring
@@ -102,336 +50,217 @@
             to showcase my growth as a budding visual communicator and my dedication
             to blending creativity with technical.
           </p>
-          <a class="btn btn-shutter" href="#gallery">View Gallery</a>
+          <a class="btn" href="#gallery">
+            View portfolio
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
         </div>
+        <a class="scroll-mouse" href="#gallery" aria-label="Scroll to portfolio"><span></span></a>
       </section>
 
       <section class="skills" id="skills">
-        <div class="section-head reveal">
-          <span class="heading-lens" aria-hidden="true"></span>
-          <p class="eyebrow">What I work with</p>
+        <div class="section-head">
           <h2>Skill Set</h2>
-          <span class="rule"></span>
+          <p>Tools and crafts I use to shape stills and motion.</p>
         </div>
-
-        <div class="skills-stage">
-          <article class="skill-copy skill-copy--05 reveal">
-            <span class="skill-num">05</span>
-            <h3>Canva</h3>
-            <div class="stars" aria-label="5 out of 5 stars" data-rating="5"></div>
-            <p>Layouts, social creatives, and quick visual systems with a polished finish.</p>
-          </article>
-
-          <article class="skill-copy skill-copy--04 reveal">
-            <span class="skill-num">04</span>
-            <h3>Photoshop</h3>
-            <div class="stars" aria-label="3 out of 5 stars" data-rating="3"></div>
-            <p>Retouching, colour work, and compositing to refine stills with care.</p>
-          </article>
-
-          <article class="skill-copy skill-copy--01 reveal">
-            <span class="skill-num">01</span>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <span>01</span>
             <h3>Photography</h3>
             <div class="stars" aria-label="3 out of 5 stars" data-rating="3"></div>
             <p>Framing light, mood, and story — from portraits to quiet observational frames.</p>
           </article>
-
-          <article class="skill-copy skill-copy--02 reveal">
-            <span class="skill-num">02</span>
+          <article class="skill-card">
+            <span>02</span>
             <h3>Videography</h3>
             <div class="stars" aria-label="2 out of 5 stars" data-rating="2"></div>
             <p>Capturing motion with intention — handheld energy and considered camera moves.</p>
           </article>
-
-          <article class="skill-copy skill-copy--03 reveal">
-            <span class="skill-num">03</span>
+          <article class="skill-card">
+            <span>03</span>
             <h3>Video editing</h3>
             <div class="stars" aria-label="4 out of 5 stars" data-rating="4"></div>
             <p>Pacing, colour, and sound — cutting footage into a clear visual narrative.</p>
           </article>
-
-          <div class="wheel" aria-hidden="true">
-            <div class="wheel-orbit"></div>
-            <svg class="wheel-svg" viewBox="0 0 420 420">
-              <defs>
-                <filter id="ribbon-shadow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#5c3a40" flood-opacity="0.22" />
-                </filter>
-                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#c9939c" />
-                  <stop offset="100%" stop-color="#B5828C" />
-                </linearGradient>
-                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#e3a090" />
-                  <stop offset="100%" stop-color="#c9786e" />
-                </linearGradient>
-                <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#ffc4b2" />
-                  <stop offset="100%" stop-color="#FFB4A2" />
-                </linearGradient>
-                <linearGradient id="g4" x1="1" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#d9b7a8" />
-                  <stop offset="100%" stop-color="#c49a8c" />
-                </linearGradient>
-                <linearGradient id="g5" x1="0" y1="1" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#a06570" />
-                  <stop offset="100%" stop-color="#8f5560" />
-                </linearGradient>
-              </defs>
-
-              <!-- 01 Photography — top right -->
-              <g transform="translate(210,210) rotate(36)">
-                <g filter="url(#ribbon-shadow)">
-                  <path class="ribbon-body" d="M-34,-168 L34,-168 L34,-88 L0,-62 L-34,-88 Z" fill="url(#g1)" />
-                  <path d="M-34,-88 L0,-62 L34,-88 L0,-80 Z" fill="#6d4450" opacity="0.22" />
-                </g>
-                <g transform="translate(0,-128)" fill="#fff">
-                  <rect x="-13" y="-9" width="26" height="18" rx="3" fill="none" stroke="#fff" stroke-width="2" />
-                  <circle cx="0" cy="0" r="5.5" fill="none" stroke="#fff" stroke-width="2" />
-                  <rect x="8" y="-13" width="6" height="4" rx="1" fill="#fff" />
-                </g>
-              </g>
-
-              <!-- 02 Videography — middle right -->
-              <g transform="translate(210,210) rotate(108)">
-                <g filter="url(#ribbon-shadow)">
-                  <path d="M-34,-168 L34,-168 L34,-88 L0,-62 L-34,-88 Z" fill="url(#g2)" />
-                  <path d="M-34,-88 L0,-62 L34,-88 L0,-80 Z" fill="#6d4450" opacity="0.22" />
-                </g>
-                <g transform="translate(0,-128)" fill="#fff">
-                  <rect x="-16" y="-8" width="22" height="16" rx="2.5" fill="none" stroke="#fff" stroke-width="2" />
-                  <path d="M8,-4 L16,-8 L16,8 L8,4 Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" />
-                </g>
-              </g>
-
-              <!-- 03 Video editing — bottom -->
-              <g transform="translate(210,210) rotate(180)">
-                <g filter="url(#ribbon-shadow)">
-                  <path d="M-34,-168 L34,-168 L34,-88 L0,-62 L-34,-88 Z" fill="url(#g3)" />
-                  <path d="M-34,-88 L0,-62 L34,-88 L0,-80 Z" fill="#6d4450" opacity="0.22" />
-                </g>
-                <g transform="translate(0,-128)" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round">
-                  <rect x="-12" y="-4" width="24" height="14" rx="1.5" />
-                  <path d="M-8,-10 L-4,-4 M0,-10 L4,-4 M8,-10 L12,-4" />
-                  <path d="M-4,3 L4,7" />
-                </g>
-              </g>
-
-              <!-- 04 Photoshop — middle left -->
-              <g transform="translate(210,210) rotate(252)">
-                <g filter="url(#ribbon-shadow)">
-                  <path d="M-34,-168 L34,-168 L34,-88 L0,-62 L-34,-88 Z" fill="url(#g4)" />
-                  <path d="M-34,-88 L0,-62 L34,-88 L0,-80 Z" fill="#6d4450" opacity="0.22" />
-                </g>
-                <g transform="translate(0,-128)">
-                  <rect x="-11" y="-11" width="16" height="16" rx="2" fill="none" stroke="#fff" stroke-width="2" />
-                  <rect x="-5" y="-5" width="16" height="16" rx="2" fill="none" stroke="#fff" stroke-width="2" opacity="0.9" />
-                </g>
-              </g>
-
-              <!-- 05 Canva — top left -->
-              <g transform="translate(210,210) rotate(324)">
-                <g filter="url(#ribbon-shadow)">
-                  <path d="M-34,-168 L34,-168 L34,-88 L0,-62 L-34,-88 Z" fill="url(#g5)" />
-                  <path d="M-34,-88 L0,-62 L34,-88 L0,-80 Z" fill="#6d4450" opacity="0.22" />
-                </g>
-                <g transform="translate(0,-128)" fill="none" stroke="#fff" stroke-width="2">
-                  <circle cx="-4" cy="-2" r="7" />
-                  <path d="M4,-6 L12,10 L-1,10 Z" />
-                </g>
-              </g>
-
-              <circle cx="210" cy="210" r="56" fill="#fff6f0" />
-              <circle cx="210" cy="210" r="56" fill="none" stroke="#fff" stroke-width="6" />
-              <g transform="translate(210,210)" fill="none" stroke="#6d4a50" stroke-width="2" stroke-linecap="round">
-                <path d="M-6,-10 V10" />
-                <path d="M-10,-6 L-6,-10 L-2,-6" />
-                <path d="M-10,6 L-6,10 L-2,6" />
-                <path d="M2,-8 H14" />
-                <path d="M2,0 H12" />
-                <path d="M2,8 H10" />
-              </g>
-            </svg>
-          </div>
+          <article class="skill-card">
+            <span>04</span>
+            <h3>Photoshop</h3>
+            <div class="stars" aria-label="3 out of 5 stars" data-rating="3"></div>
+            <p>Retouching, colour work, and compositing to refine stills with care.</p>
+          </article>
+          <article class="skill-card">
+            <span>05</span>
+            <h3>Canva</h3>
+            <div class="stars" aria-label="5 out of 5 stars" data-rating="5"></div>
+            <p>Layouts, social creatives, and quick visual systems with a polished finish.</p>
+          </article>
         </div>
       </section>
 
       <section class="gallery" id="gallery">
-        <div class="section-head reveal">
-          <span class="heading-lens" aria-hidden="true"></span>
-          <p class="eyebrow">Selected frames</p>
-          <h2>Gallery</h2>
-          <span class="rule"></span>
+        <div class="section-head">
+          <h2>Portfolio</h2>
+          <p>A collection of moments frozen in time — portrait, nature, wildlife, travel, architecture, and landscape.</p>
         </div>
-
         <div class="gallery-tabs" role="tablist" aria-label="Gallery categories">
-          <button type="button" role="tab" aria-selected="true" data-category="portrait">Portrait</button>
-          <button type="button" role="tab" aria-selected="false" data-category="nature">Nature</button>
-          <button type="button" role="tab" aria-selected="false" data-category="wildlife">Wildlife</button>
-          <button type="button" role="tab" aria-selected="false" data-category="travel">Travel</button>
-          <button type="button" role="tab" aria-selected="false" data-category="architectural">Architectural</button>
-          <button type="button" role="tab" aria-selected="false" data-category="landscape">Landscape</button>
+          <button type="button" data-category="all" aria-selected="true">All</button>
+          <button type="button" data-category="portrait" aria-selected="false">Portrait</button>
+          <button type="button" data-category="nature" aria-selected="false">Nature</button>
+          <button type="button" data-category="wildlife" aria-selected="false">Wildlife</button>
+          <button type="button" data-category="travel" aria-selected="false">Travel</button>
+          <button type="button" data-category="architectural" aria-selected="false">Architectural</button>
+          <button type="button" data-category="landscape" aria-selected="false">Landscape</button>
         </div>
 
-        <div class="gallery-panels">
-          <div class="mosaic is-active" id="panel-portrait" role="tabpanel" data-category="portrait">
-            <figure class="mosaic-item mosaic-item--tall" data-slot="portrait-1">
-              <div class="ph"><span>Portrait 01</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="portrait-2">
-              <div class="ph"><span>Portrait 02</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="portrait-3">
-              <div class="ph"><span>Portrait 03</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="portrait-4">
-              <div class="ph"><span>Portrait 04</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="portrait-5">
-              <div class="ph"><span>Portrait 05</span></div>
-            </figure>
-          </div>
+        <div class="masonry" id="masonry">
+          <article class="work-card" data-category="portrait">
+            <img src="image/Portrait%20photography/photo%202.webp" alt="Portrait photography" />
+            <div class="work-overlay"><h3>Portrait</h3><p>Framing light, mood, and story</p></div>
+          </article>
+          <article class="work-card" data-category="portrait">
+            <img src="image/Portrait%20photography/photo%203.webp" alt="Portrait photography" />
+            <div class="work-overlay"><h3>Portrait</h3><p>Quiet observational frames</p></div>
+          </article>
+          <article class="work-card" data-category="portrait">
+            <img src="image/Portrait%20photography/photo%204.webp" alt="Portrait photography" />
+            <div class="work-overlay"><h3>Portrait</h3><p>Character in still light</p></div>
+          </article>
+          <article class="work-card" data-category="portrait">
+            <img src="image/Portrait%20photography/photo%205.webp" alt="Portrait photography" />
+            <div class="work-overlay"><h3>Portrait</h3><p>Presence and expression</p></div>
+          </article>
+          <article class="work-card" data-category="portrait">
+            <img src="image/Portrait%20photography/photo%201.webp" alt="Portrait photography" />
+            <div class="work-overlay"><h3>Portrait</h3><p>Wide environmental portrait</p></div>
+          </article>
 
-          <div class="mosaic" id="panel-nature" role="tabpanel" hidden data-category="nature">
-            <figure class="mosaic-item mosaic-item--tall" data-slot="nature-1">
-              <div class="ph"><span>Nature 01</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="nature-2">
-              <div class="ph"><span>Nature 02</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="nature-3">
-              <div class="ph"><span>Nature 03</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="nature-4">
-              <div class="ph"><span>Nature 04</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="nature-5">
-              <div class="ph"><span>Nature 05</span></div>
-            </figure>
-          </div>
+          <article class="work-card" data-category="nature">
+            <img src="image/Nature%20photography/photo%201.webp" alt="Nature photography"  />
+            <div class="work-overlay"><h3>Nature</h3><p>Quiet outdoor frames</p></div>
+          </article>
+          <article class="work-card" data-category="nature">
+            <img src="image/Nature%20photography/photo%202.webp" alt="Nature photography"  />
+            <div class="work-overlay"><h3>Nature</h3><p>Texture, leaf, and light</p></div>
+          </article>
+          <article class="work-card" data-category="nature">
+            <img src="image/Nature%20photography/photo%203.webp" alt="Nature photography"  />
+            <div class="work-overlay"><h3>Nature</h3><p>Green studies</p></div>
+          </article>
+          <article class="work-card" data-category="nature">
+            <img src="image/Nature%20photography/photo%204.webp" alt="Nature photography"  />
+            <div class="work-overlay"><h3>Nature</h3><p>Seasonal colour</p></div>
+          </article>
+          <article class="work-card" data-category="nature">
+            <img src="image/Nature%20photography/photo%205.webp" alt="Nature photography"  />
+            <div class="work-overlay"><h3>Nature</h3><p>Open air detail</p></div>
+          </article>
 
-          <div class="mosaic" id="panel-wildlife" role="tabpanel" hidden data-category="wildlife">
-            <figure class="mosaic-item mosaic-item--tall" data-slot="wildlife-1">
-              <div class="ph"><span>Wildlife 01</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="wildlife-2">
-              <div class="ph"><span>Wildlife 02</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="wildlife-3">
-              <div class="ph"><span>Wildlife 03</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="wildlife-4">
-              <div class="ph"><span>Wildlife 04</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="wildlife-5">
-              <div class="ph"><span>Wildlife 05</span></div>
-            </figure>
-          </div>
+          <article class="work-card" data-category="wildlife">
+            <img src="image/Wildlife%20Photography/photo%201.webp" alt="Wildlife photography"  />
+            <div class="work-overlay"><h3>Wildlife</h3><p>Close observation</p></div>
+          </article>
+          <article class="work-card" data-category="wildlife">
+            <img src="image/Wildlife%20Photography/photo%202.webp" alt="Wildlife photography"  />
+            <div class="work-overlay"><h3>Wildlife</h3><p>Habitat and movement</p></div>
+          </article>
+          <article class="work-card" data-category="wildlife">
+            <img src="image/Wildlife%20Photography/photo%203.webp" alt="Wildlife photography"  />
+            <div class="work-overlay"><h3>Wildlife</h3><p>Patience in the field</p></div>
+          </article>
+          <article class="work-card" data-category="wildlife">
+            <img src="image/Wildlife%20Photography/photo%204.webp" alt="Wildlife photography"  />
+            <div class="work-overlay"><h3>Wildlife</h3><p>Natural behaviour</p></div>
+          </article>
+          <article class="work-card" data-category="wildlife">
+            <img src="image/Wildlife%20Photography/photo%205.webp" alt="Wildlife photography"  />
+            <div class="work-overlay"><h3>Wildlife</h3><p>Wild light</p></div>
+          </article>
 
-          <div class="mosaic" id="panel-travel" role="tabpanel" hidden data-category="travel">
-            <figure class="mosaic-item mosaic-item--tall" data-slot="travel-1">
-              <div class="ph"><span>Travel 01</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="travel-2">
-              <div class="ph"><span>Travel 02</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="travel-3">
-              <div class="ph"><span>Travel 03</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="travel-4">
-              <div class="ph"><span>Travel 04</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="travel-5">
-              <div class="ph"><span>Travel 05</span></div>
-            </figure>
-          </div>
+          <article class="work-card" data-category="travel">
+            <img src="image/Travel%20Photography/photo%201.webp" alt="Travel photography"  />
+            <div class="work-overlay"><h3>Travel</h3><p>Place and atmosphere</p></div>
+          </article>
+          <article class="work-card" data-category="travel">
+            <img src="image/Travel%20Photography/photo%202.webp" alt="Travel photography"  />
+            <div class="work-overlay"><h3>Travel</h3><p>Streets and journeys</p></div>
+          </article>
+          <article class="work-card" data-category="travel">
+            <img src="image/Travel%20Photography/photo%203.webp" alt="Travel photography"  />
+            <div class="work-overlay"><h3>Travel</h3><p>Far-off colour</p></div>
+          </article>
+          <article class="work-card" data-category="travel">
+            <img src="image/Travel%20Photography/photo%204.webp" alt="Travel photography"  />
+            <div class="work-overlay"><h3>Travel</h3><p>Found details</p></div>
+          </article>
+          <article class="work-card" data-category="travel">
+            <img src="image/Travel%20Photography/photo%205.webp" alt="Travel photography"  />
+            <div class="work-overlay"><h3>Travel</h3><p>On the road</p></div>
+          </article>
 
-          <div class="mosaic" id="panel-architectural" role="tabpanel" hidden data-category="architectural">
-            <figure class="mosaic-item mosaic-item--tall" data-slot="architectural-1">
-              <div class="ph"><span>Architectural 01</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="architectural-2">
-              <div class="ph"><span>Architectural 02</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="architectural-3">
-              <div class="ph"><span>Architectural 03</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="architectural-4">
-              <div class="ph"><span>Architectural 04</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="architectural-5">
-              <div class="ph"><span>Architectural 05</span></div>
-            </figure>
-          </div>
+          <article class="work-card" data-category="architectural">
+            <img src="image/Architectural%20Photography/photo%201.webp" alt="Architectural photography"  />
+            <div class="work-overlay"><h3>Architectural</h3><p>Line and structure</p></div>
+          </article>
+          <article class="work-card" data-category="architectural">
+            <img src="image/Architectural%20Photography/photo%202.webp" alt="Architectural photography"  />
+            <div class="work-overlay"><h3>Architectural</h3><p>Built form</p></div>
+          </article>
+          <article class="work-card" data-category="architectural">
+            <img src="image/Architectural%20Photography/photo%203.webp" alt="Architectural photography"  />
+            <div class="work-overlay"><h3>Architectural</h3><p>Geometry in light</p></div>
+          </article>
+          <article class="work-card" data-category="architectural">
+            <img src="image/Architectural%20Photography/photo%204.webp" alt="Architectural photography"  />
+            <div class="work-overlay"><h3>Architectural</h3><p>Space and scale</p></div>
+          </article>
+          <article class="work-card" data-category="architectural">
+            <img src="image/Architectural%20Photography/photo%205.webp" alt="Architectural photography"  />
+            <div class="work-overlay"><h3>Architectural</h3><p>Facade studies</p></div>
+          </article>
 
-          <div class="mosaic" id="panel-landscape" role="tabpanel" hidden data-category="landscape">
-            <figure class="mosaic-item mosaic-item--tall" data-slot="landscape-1">
-              <div class="ph"><span>Landscape 01</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="landscape-2">
-              <div class="ph"><span>Landscape 02</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="landscape-3">
-              <div class="ph"><span>Landscape 03</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="landscape-4">
-              <div class="ph"><span>Landscape 04</span></div>
-            </figure>
-            <figure class="mosaic-item" data-slot="landscape-5">
-              <div class="ph"><span>Landscape 05</span></div>
-            </figure>
-          </div>
+          <article class="work-card" data-category="landscape">
+            <img src="image/Landscape%20photography/photo%201.webp" alt="Landscape photography"  />
+            <div class="work-overlay"><h3>Landscape</h3><p>Open horizon</p></div>
+          </article>
+          <article class="work-card" data-category="landscape">
+            <img src="image/Landscape%20photography/photo%202.webp" alt="Landscape photography"  />
+            <div class="work-overlay"><h3>Landscape</h3><p>Land and sky</p></div>
+          </article>
+          <article class="work-card" data-category="landscape">
+            <img src="image/Landscape%20photography/photo%203.webp" alt="Landscape photography"  />
+            <div class="work-overlay"><h3>Landscape</h3><p>Wide country</p></div>
+          </article>
+          <article class="work-card" data-category="landscape">
+            <img src="image/Landscape%20photography/photo%204.webp" alt="Landscape photography"  />
+            <div class="work-overlay"><h3>Landscape</h3><p>Atmosphere</p></div>
+          </article>
+          <article class="work-card" data-category="landscape">
+            <img src="image/Landscape%20photography/photo%205.webp" alt="Landscape photography"  />
+            <div class="work-overlay"><h3>Landscape</h3><p>Full frame vista</p></div>
+          </article>
         </div>
       </section>
 
       <section class="contact" id="contact">
-        <div class="section-head reveal">
-          <span class="heading-lens" aria-hidden="true"></span>
-          <p class="eyebrow">For recruiters</p>
+        <div class="section-head">
           <h2>Contact</h2>
-          <span class="rule"></span>
+          <p>Share a brief, an opening, or a collaboration idea. I am ready to work. Drop your message.</p>
         </div>
-
         <div class="contact-grid">
-          <div class="contact-intro reveal">
+          <div class="contact-intro">
             <h3>Let’s make something visual.</h3>
-            <p>
-              Share a brief, an opening, or a collaboration idea. I am ready to work dorp your
-              message.
-            </p>
-            <div class="footer-socials">
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.78-2.1 4.04 0 4.79 2.66 4.79 6.12V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
-              </a>
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.9 11.9 0 0 0 5.76 1.47h.01c6.56 0 11.9-5.34 11.9-11.91 0-3.18-1.24-6.17-3.45-8.43zM12.07 21.6h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.51-5.27c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.12 1.03 6.98 2.9a9.82 9.82 0 0 1 2.9 6.98c0 5.44-4.43 9.88-9.87 9.88zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-              </a>
+            <div class="socials">
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">wa</a>
             </div>
           </div>
-
-          <form class="contact-form reveal" id="contact-form" novalidate>
-            <label>
-              Name
-              <input type="text" name="name" autocomplete="name" required placeholder="Your full name" />
-            </label>
-            <label>
-              Gmail
-              <input
-                type="email"
-                name="email"
-                autocomplete="email"
-                required
-                placeholder="name@gmail.com"
-              />
-            </label>
-            <label>
-              Phone number
-              <input type="tel" name="phone" autocomplete="tel" required placeholder="+91 00000 00000" />
-            </label>
-            <label>
-              Message
-              <textarea name="message" rows="5" required placeholder="Tell me about the role or project…"></textarea>
-            </label>
+          <form class="contact-form" id="contact-form" novalidate>
+            <label>Name<input type="text" name="name" autocomplete="name" required placeholder="Your full name" /></label>
+            <label>Gmail<input type="email" name="email" autocomplete="email" required placeholder="name@gmail.com" /></label>
+            <label>Phone number<input type="tel" name="phone" autocomplete="tel" required placeholder="+91 00000 00000" /></label>
+            <label>Message<textarea name="message" rows="5" required placeholder="Tell me about the role or project…"></textarea></label>
             <button class="btn" type="submit">Send Message</button>
             <p class="form-status" id="form-status" role="status" hidden></p>
           </form>
@@ -440,10 +269,20 @@
     </main>
 
     <footer class="site-footer">
-      <div class="footer-inner">
-        <p>© Navya · Visual Communication</p>
-      </div>
+      <p class="footer-brand">NAVYA</p>
+      <p>Visual Communication · Photography</p>
+      <p>© Navya. All rights reserved.</p>
     </footer>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-close" type="button" aria-label="Close">×</button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous">‹</button>
+      <figure class="lightbox-stage">
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next">›</button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
